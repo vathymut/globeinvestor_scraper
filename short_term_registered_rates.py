@@ -63,7 +63,7 @@ colnames = ( 'financial_institution',
             'date_retrieved',
              )
 
-# Get the urls
+# Get the urls: ugly hack (fix later)
 url_pg1 = r'http://www.globeinvestor.com/servlet/Page/document/v5/data/rates?order=d&pageType=gic_short&sort=COMPOUND&page=1&tax_indicator=R'
 url_pg2 = r'http://www.globeinvestor.com/servlet/Page/document/v5/data/rates?order=d&pageType=gic_short&sort=COMPOUND&page=2&tax_indicator=R'
 urls = ( url_pg1, url_pg2 )

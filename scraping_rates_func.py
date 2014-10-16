@@ -1,8 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-# Convert text files to a single bibtex file.
-
 from lxml import html
 import datetime
 import requests

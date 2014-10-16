@@ -27,7 +27,7 @@ colnames = ( 'financial_institution',
             'date_retrieved',
              )
 
-# Get the urls
+# Get the urls: ugly hack (fix later)
 url_pg1 = r'http://www.globeinvestor.com/servlet/Page/document/v5/data/rates?pageType=deposit_acct'
 urls = ( url_pg1, )
 
