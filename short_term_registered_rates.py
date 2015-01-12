@@ -68,6 +68,16 @@ url_pg1 = r'http://www.globeinvestor.com/servlet/Page/document/v5/data/rates?ord
 url_pg2 = r'http://www.globeinvestor.com/servlet/Page/document/v5/data/rates?order=d&pageType=gic_short&sort=COMPOUND&page=2&tax_indicator=R'
 urls = ( url_pg1, url_pg2 )
 
+# Get the urls
+def create_url( page_no ):
+    url = r'http://www.globeinvestor.com/servlet/Page/document/v5/data/rates?order=a'
+    url += r'&pageType=gic_short&sort=COMPOUND'
+    url += r'&page={page_no}'.format( page_no = page_no)
+    url += r'tax_indicator=R'
+    return url
+
+urls = [ create_url( pg ) for pg in xrange( 1, 3 ) ]
+
 if __name__ == '__main__':
     write_info_to_csv( urls, all_xpaths, colnames, prefix = 'gic-short-term-registered' )
     date_today = str( datetime.date.today() )

@@ -63,19 +63,15 @@ colnames = ( 'financial_institution',
             'date_retrieved',
              )
 
-# Get the urls: ugly hack (fix later)
-url_pg1 = r'http://www.globeinvestor.com/servlet/Page/document/v5/data/rates?order=a&pageType=gic_long&sort=FIN_NAME&page=1&tax_indicator=N'
-url_pg2 = r'http://www.globeinvestor.com/servlet/Page/document/v5/data/rates?order=a&pageType=gic_long&sort=FIN_NAME&page=2&tax_indicator=N'
-url_pg3 = r'http://www.globeinvestor.com/servlet/Page/document/v5/data/rates?order=a&pageType=gic_long&sort=FIN_NAME&page=3&tax_indicator=N'
-url_pg4 = r'http://www.globeinvestor.com/servlet/Page/document/v5/data/rates?order=a&pageType=gic_long&sort=FIN_NAME&page=4&tax_indicator=N'
-url_pg5 = r'http://www.globeinvestor.com/servlet/Page/document/v5/data/rates?order=a&pageType=gic_long&sort=FIN_NAME&page=5&tax_indicator=N'
-url_pg6 = r'http://www.globeinvestor.com/servlet/Page/document/v5/data/rates?order=a&pageType=gic_long&sort=FIN_NAME&page=6&tax_indicator=N'
-url_pg7 = r'http://www.globeinvestor.com/servlet/Page/document/v5/data/rates?order=a&pageType=gic_long&sort=FIN_NAME&page=7&tax_indicator=N'
-url_pg8 = r'http://www.globeinvestor.com/servlet/Page/document/v5/data/rates?order=a&pageType=gic_long&sort=FIN_NAME&page=8&tax_indicator=N'
-url_pg9 = r'http://www.globeinvestor.com/servlet/Page/document/v5/data/rates?order=a&pageType=gic_long&sort=FIN_NAME&page=9&tax_indicator=N'
-url_pg10 = r'http://www.globeinvestor.com/servlet/Page/document/v5/data/rates?order=a&pageType=gic_long&sort=FIN_NAME&page=10&tax_indicator=N'
-url_pg11 = r'http://www.globeinvestor.com/servlet/Page/document/v5/data/rates?order=a&pageType=gic_long&sort=FIN_NAME&page=11&tax_indicator=N'
-urls = ( url_pg1, url_pg2, url_pg3, url_pg4, url_pg5, url_pg6, url_pg7, url_pg8, url_pg9, url_pg10, url_pg11 )
+# Get the urls
+def create_url( page_no ):
+    url = r'http://www.globeinvestor.com/servlet/Page/document/v5/data/rates?order=a'
+    url += r'&pageType=gic_long&sort=FIN_NAME'
+    url += r'&page={page_no}'.format( page_no = page_no)
+    url += r'&tax_indicator=N'
+    return url
+
+urls = [ create_url( pg ) for pg in xrange( 1, 12 ) ]
 
 if __name__ == '__main__':
     write_info_to_csv( urls, all_xpaths, colnames, prefix = 'gic-long-term-non-registered' )
