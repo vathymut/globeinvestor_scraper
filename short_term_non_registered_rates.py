@@ -68,10 +68,10 @@ def create_url( page_no ):
     url = r'http://www.globeinvestor.com/servlet/Page/document/v5/data/rates?order=a'
     url += r'&pageType=gic_short&sort=FIN_NAME'
     url += r'&page={page_no}'.format( page_no = page_no)
-    url += r'tax_indicator=N'
+    url += r'&tax_indicator=N'
     return url
 
-urls = [ create_url( pg ) for pg in xrange( 1, 3 ) ]
+urls = [ create_url( pg ) for pg in xrange( 1, 4 ) ]
 
 if __name__ == '__main__':
     write_info_to_csv( urls, all_xpaths, colnames, prefix = 'gic-short-term-non-registered' )

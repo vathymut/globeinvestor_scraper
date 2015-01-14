@@ -68,7 +68,7 @@ def create_url( page_no ):
     url = r'http://www.globeinvestor.com/servlet/Page/document/v5/data/rates?order=a'
     url += r'&pageType=gic_long&sort=FIN_NAME'
     url += r'&page={page_no}'.format( page_no = page_no)
-    url += r'tax_indicator=R'
+    url += r'&tax_indicator=R'
     return url
 
 urls = [ create_url( pg ) for pg in xrange( 1, 5 ) ]
